@@ -63,16 +63,14 @@ ingress:
   #      - chart-example.local
 
 resources:
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # Specifies the resource allocation for the container.
+  # This ensures proper scheduling and efficient resource management in the cluster.
   limits:
-    cpu: 210m
-    memory: 256Mi
+    cpu: 1000m       # The maximum CPU the container can use (1000m = 1 CPU core).
+    memory: 256Mi    # The maximum memory the container can use (256Mi = 256 megabytes).
   requests:
-    cpu: 210m
-    memory: 128Mi
+    cpu: 500m        # The minimum CPU guaranteed for the container (500m = 0.5 CPU core).
+    memory: 128Mi    # The minimum memory guaranteed for the container (128Mi = 128 megabytes).
 
 livenessProbe:
   tcpSocket:
